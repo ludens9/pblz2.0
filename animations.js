@@ -637,14 +637,25 @@ function initializeClickEvents() {
     // 중복 실행 방지를 위한 헬퍼 함수
     function addTouchAndClickEvent(element, handler) {
         let isHandled = false;
+        let touchStartTime = 0;
         
-        // 터치 이벤트 (모바일)
+        // 터치 시작 (모바일)
         element.addEventListener('touchstart', function(e) {
-            e.preventDefault(); // 기본 터치 동작 방지
-            isHandled = true;
-            handler();
-            // 200ms 후 중복 방지 플래그 리셋
-            setTimeout(() => { isHandled = false; }, 200);
+            touchStartTime = Date.now();
+            // 스크롤과 충돌 방지를 위해 preventDefault 제거
+        }, { passive: true });
+        
+        // 터치 종료 (모바일)
+        element.addEventListener('touchend', function(e) {
+            const touchDuration = Date.now() - touchStartTime;
+            // 짧은 터치만 버튼 클릭으로 인식 (스크롤 방지)
+            if (touchDuration < 300) {
+                e.preventDefault();
+                isHandled = true;
+                handler();
+                // 300ms 후 중복 방지 플래그 리셋
+                setTimeout(() => { isHandled = false; }, 300);
+            }
         }, { passive: false });
         
         // 클릭 이벤트 (데스크탑 및 폴백)
@@ -680,11 +691,14 @@ function initializeClickEvents() {
     
     // 3. Share now 버튼 터치/클릭 - 링크 복사 및 팝업 표시
     if (shareButton) {
+        console.log('Share 버튼 이벤트 리스너 등록됨');
         addTouchAndClickEvent(shareButton, function() {
+            console.log('Share 버튼 클릭됨');
             // 클립보드에 링크 복사
             if (navigator.clipboard && window.isSecureContext) {
                 // 최신 브라우저에서 클립보드 API 사용
                 navigator.clipboard.writeText(appStoreUrl).then(function() {
+                    console.log('클립보드 복사 성공');
                     showCopyPopup();
                 }).catch(function(err) {
                     console.error('클립보드 복사 실패:', err);
@@ -692,9 +706,12 @@ function initializeClickEvents() {
                 });
             } else {
                 // 구형 브라우저 지원
+                console.log('Fallback 클립보드 사용');
                 fallbackCopyToClipboard(appStoreUrl);
             }
         });
+    } else {
+        console.error('Share 버튼을 찾을 수 없음');
     }
     
     // 팝업 확인 버튼 터치/클릭
@@ -707,14 +724,25 @@ function initializeClickEvents() {
     // 팝업 배경 터치/클릭 시 닫기
     if (copyPopup) {
         let isBackgroundHandled = false;
+        let bgTouchStartTime = 0;
         
-        // 터치 이벤트
+        // 터치 시작
         copyPopup.addEventListener('touchstart', function(e) {
             if (e.target === copyPopup) {
-                e.preventDefault();
-                isBackgroundHandled = true;
-                hideCopyPopup();
-                setTimeout(() => { isBackgroundHandled = false; }, 200);
+                bgTouchStartTime = Date.now();
+            }
+        }, { passive: true });
+        
+        // 터치 종료
+        copyPopup.addEventListener('touchend', function(e) {
+            if (e.target === copyPopup) {
+                const touchDuration = Date.now() - bgTouchStartTime;
+                if (touchDuration < 300) {
+                    e.preventDefault();
+                    isBackgroundHandled = true;
+                    hideCopyPopup();
+                    setTimeout(() => { isBackgroundHandled = false; }, 300);
+                }
             }
         }, { passive: false });
         

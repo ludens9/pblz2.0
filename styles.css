@@ -930,6 +930,15 @@ html {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* 모바일 터치 영역 확대 */
+    position: relative;
+    min-height: 44px; /* iOS 권장 최소 터치 영역 */
+    touch-action: manipulation; /* 더블탭 줌 방지 */
+}
+
+.feature-button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
 }
 
 /* 팝업 버튼 터치 최적화 */
