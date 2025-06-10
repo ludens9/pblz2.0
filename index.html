@@ -17,6 +17,8 @@
     <meta property="og:title" content="Work Timer - Stack Your Work, Discover New Balance">
     <meta property="og:description" content="Simple work timer for everyone who works alone. Track working hours and analyze work patterns for freelancers, digital nomads, and remote workers.">
     <meta property="og:image" content="https://yourdomain.com/assets/hero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://yourdomain.com">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Work Timer">
@@ -42,6 +44,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
@@ -118,8 +121,10 @@
             <p class="hero-subtitle animate-subtitle">super simple work timer for every work alone</p>
             <div class="hero-media-container">
                 <img src="assets/hero.png" alt="Work Timer App Main Screen - Time Tracking Interface" class="hero-image" id="hero-image">
-                <video class="hero-video" id="hero-video" autoplay muted loop>
+                <video class="hero-video" id="hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata">
                     <source src="assets/hero1.mp4" type="video/mp4">
+                    <!-- 모바일 호환성을 위한 대체 이미지 -->
+                    Your browser does not support the video tag.
                 </video>
             </div>
         </div>

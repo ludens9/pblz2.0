@@ -56,4 +56,10 @@
 # RewriteEngine On
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteRule ^([^\.]+)$ $1.html [NC,L] 
+# RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# MIME 타입 설정
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType image/x-icon .ico
+AddType image/webp .webp 
