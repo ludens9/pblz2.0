@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Disallow private directories (if any)
+# Disallow: /private/
+# Disallow: /admin/
+
+# Allow important resources
+Allow: /assets/
+Allow: /styles.css
+Allow: /animations.js 

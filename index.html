@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Timer - Stack Your Work, Discover New Balance</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Simple work timer for everyone who works alone. Track working hours and analyze work patterns for freelancers, digital nomads, and remote workers.">
+    <meta name="keywords" content="work timer, time tracking, productivity, freelancer, digital nomad, remote work, focus time, work patterns, solo work, time management">
+    <meta name="author" content="bold.inc">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Work Timer - Stack Your Work, Discover New Balance">
+    <meta property="og:description" content="Simple work timer for everyone who works alone. Track working hours and analyze work patterns for freelancers, digital nomads, and remote workers.">
+    <meta property="og:image" content="https://yourdomain.com/assets/hero.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Work Timer">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Work Timer - Stack Your Work, Discover New Balance">
+    <meta name="twitter:description" content="Simple work timer for everyone who works alone. Track working hours and analyze work patterns for freelancers, digital nomads, and remote workers.">
+    <meta name="twitter:image" content="https://yourdomain.com/assets/hero.png">
+    <meta name="twitter:site" content="@your_twitter_handle">
+    
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Work Timer">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Matter.js 물리 엔진 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Work Timer",
+        "description": "Simple work timer for everyone who works alone. Track working hours and analyze work patterns for freelancers, digital nomads, and remote workers.",
+        "url": "https://yourdomain.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS, Android, Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "bold.inc",
+            "email": "customer.pblz@gmail.com"
+        },
+        "keywords": "work timer, time tracking, productivity, freelancer, digital nomad, remote work, focus time, work patterns, solo work, time management",
+        "inLanguage": "en-US",
+        "screenshot": "https://yourdomain.com/assets/hero.png",
+        "featureList": [
+            "Easily record work hours",
+            "View work style at a glance with calendar",
+            "Edit and build work records",
+            "Check work patterns in real-time",
+            "Find and connect with colleagues"
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Work Timer",
+        "url": "https://yourdomain.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yourdomain.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- 헤더 섹션 -->
+    <header class="header">
+        <div class="header-frame">
+            <img src="assets/logo.png" alt="Work Timer Logo" class="logo" id="logo-button">
+            <img src="assets/store_s.png" alt="Download from App Store" class="store-small" id="store-button">
+        </div>
+    </header>
+
+    <main role="main">
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <!-- 물리 엔진을 위한 캔버스 -->
+        <canvas id="hero-objects-canvas" class="hero-objects-canvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title animate-title">Record your work,<br>Build better habits.</h1>
+            <p class="hero-subtitle animate-subtitle">super simple work timer for every work alone</p>
+            <div class="hero-media-container">
+                <img src="assets/hero.png" alt="Work Timer App Main Screen - Time Tracking Interface" class="hero-image" id="hero-image">
+                <video class="hero-video" id="hero-video" autoplay muted loop>
+                    <source src="assets/hero1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- 콘텐츠 섹션 -->
+    <section class="content" id="content-section">
+        <div class="content-frame">
+            <div class="content-inner">
+                <div class="content-text">
+                    <p class="content-description scroll-text" id="scroll-text">Freelancers, digital nomads, remote workers, solo entrepreneurs, indie creators, content creators, side projects, solo game developers, vibe coders, and workationers...<br><br>Don't work without a plan.<br>Don't work haphazardly.<br><br>Track your working hours and identify your work patterns.<br>Discover your own focused time.<br>Build your own time, just like stacking pebbles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 텍스트 섹션 -->
+    <section class="text-section">
+        <div class="text-content">
+            <h1 class="text-title">No fixed schedule. No team. Just you — stacking your work like pebbles.</h1>
+        </div>
+    </section>
+
+    <!-- 기능 섹션 -->
+    <section class="features">
+        <div class="features-content">
+            <!-- 첫 번째 블럭 -->
+            <div class="feature-block feature-block-1">
+                <img src="assets/card0.png" alt="Work Timer Start Screen - Swipe to easily record work hours" class="feature-image animate-image">
+                <div class="feature-text">
+                    <h2 class="feature-title animate-title">Easily start work</h2>
+                    <p class="feature-description animate-subtitle">Swipe to record today's work hours</p>
+                </div>
+            </div>
+
+            <!-- 두 번째 블럭 (2개 하위 블럭) -->
+            <div class="feature-block-2">
+                <div class="feature-sub-block">
+                    <img src="assets/card1.png" alt="Work Timer Calendar Screen - View work style at a glance" class="feature-image animate-image">
+                    <div class="feature-text">
+                        <h2 class="feature-title animate-title">Calendar</h2>
+                        <p class="feature-description animate-subtitle">View my work style at a glance</p>
+                    </div>
+                </div>
+                <div class="feature-sub-block">
+                    <img src="assets/card2.png" alt="Work Timer Edit Screen - Modify and add work records" class="feature-image animate-image">
+                    <div class="feature-text">
+                        <h2 class="feature-title animate-title">Edit</h2>
+                        <p class="feature-description animate-subtitle">Build work records without missing a day</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 세 번째 블럭 -->
+            <div class="feature-block feature-block-3">
+                <img src="assets/card3.png" alt="Work Timer Statistics Screen - Real-time work pattern analysis" class="feature-image animate-image">
+                <div class="feature-text">
+                    <h2 class="feature-title animate-title">Statistics</h2>
+                    <p class="feature-description animate-subtitle">Check my work patterns in real-time</p>
+                </div>
+            </div>
+
+            <!-- 네 번째 블럭 -->
+            <div class="feature-block feature-block-4">
+                <div class="infinite-scroll-container">
+                    <div class="infinite-scroll-track">
+                        <img src="assets/card4_1.png" alt="Work Timer Find Colleagues - Connect with nearby solo freelancers" class="infinite-scroll-image">
+                        <img src="assets/card4_2.png" alt="Work Timer Colleague Connection - Match with similar work patterns" class="infinite-scroll-image">
+                        <img src="assets/card4_3.png" alt="Work Timer Community - Networking with remote workers" class="infinite-scroll-image">
+                        <img src="assets/card4_4.png" alt="Work Timer Colleague Profile - Share and view work styles" class="infinite-scroll-image">
+                        <img src="assets/card4_5.png" alt="Work Timer Group Activity - Share focused work time together" class="infinite-scroll-image">
+                        <!-- 끊김없는 반복을 위한 복제 이미지들 -->
+                        <img src="assets/card4_1.png" alt="Work Timer Find Colleagues - Connect with nearby solo freelancers" class="infinite-scroll-image">
+                        <img src="assets/card4_2.png" alt="Work Timer Colleague Connection - Match with similar work patterns" class="infinite-scroll-image">
+                        <img src="assets/card4_3.png" alt="Work Timer Community - Networking with remote workers" class="infinite-scroll-image">
+                        <img src="assets/card4_4.png" alt="Work Timer Colleague Profile - Share and view work styles" class="infinite-scroll-image">
+                        <img src="assets/card4_5.png" alt="Work Timer Group Activity - Share focused work time together" class="infinite-scroll-image">
+                    </div>
+                </div>
+                <div class="feature-text">
+                    <h2 class="feature-title animate-title">Co-workers</h2>
+                    <p class="feature-description animate-subtitle">Finding and connecting with colleagues around me</p>
+                </div>
+            </div>
+
+            <!-- 다섯 번째 블럭 -->
+            <div class="feature-block feature-block-5">
+                <div class="feature-text">
+                    <h2 class="feature-title animate-title">Share with a friend who works alone</h2>
+                    <button class="feature-button animate-button" id="share-button">Share now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- 푸터 섹션 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h1 class="footer-title animate-title">Stack your work,<br>Discover new balance</h1>
+            <p class="footer-copyright animate-subtitle">customer.pblz@gmail.com | ⓒbold.inc</p>
+        </div>
+    </footer>
+
+    <!-- 링크 복사 완료 팝업 -->
+    <div id="copy-popup" class="copy-popup">
+        <div class="copy-popup-content">
+            <p class="copy-popup-message">Link copied to clipboard</p>
+            <button class="copy-popup-button" id="copy-popup-ok">Got it</button>
+        </div>
+    </div>
+
+    <!-- 커스텀 JavaScript -->
+    <script src="animations.js"></script>
+</body>
+</html> 
