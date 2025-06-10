@@ -93,7 +93,7 @@ img {
 /* 스크롤 시 적용될 클래스 */
 .header-frame.scrolled {
     background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     padding: 20px 30px;
     border-radius: 14px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
