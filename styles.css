@@ -319,9 +319,9 @@ img {
 }
 
 .feature-sub-block:last-child .feature-image {
-    width: 490px;
+    width: 100%;
     height: auto;
-    max-width: 100%;
+    object-fit: cover;
 }
 
 /* 세 번째 블럭 */
@@ -604,6 +604,12 @@ img {
         margin-bottom: 60px;
     }
     
+    .feature-sub-block:last-child .feature-image {
+        width: 100%;
+        max-width: none;
+        object-fit: cover;
+    }
+    
     .feature-block-3 .feature-image {
         width: 100%;
         height: auto;
@@ -627,7 +633,7 @@ img {
     }
 
     .footer {
-        padding: 100px 30px;
+        padding: 200px 30px 200px 30px; /* 위아래 패딩 100 추가 */
     }
 
     .store-large {
@@ -748,6 +754,12 @@ img {
         padding-right: 20px;
     }
     
+    .feature-sub-block:last-child .feature-image {
+        width: 100%;
+        max-width: none;
+        object-fit: cover;
+    }
+    
         .feature-block-5 .feature-button {
         padding: 10px 15px;
         font-size: 14px;
@@ -765,7 +777,7 @@ img {
     }
 
     .footer {
-        padding: 80px 20px 180px 20px; /* 하단 패딩 100px 추가 */
+        padding: 180px 20px 280px 20px; /* 위아래 패딩 100 추가 */
     }
 
     .store-large {
